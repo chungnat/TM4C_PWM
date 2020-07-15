@@ -1,0 +1,146 @@
+###############################################################################
+#
+# IAR ELF Linker V8.11.3.13950/W32 for ARM                03/Jul/2020  18:33:15
+# Copyright 2007-2017 IAR Systems AB.
+#
+#    Output file  =  C:\EE474\PWM\Release\Exe\PWM.out
+#    Map file     =  C:\EE474\PWM\Release\List\PWM.map
+#    Command line =  
+#        -f C:\Users\NATHAN~1\AppData\Local\Temp\EWBDCE.tmp
+#        (C:\EE474\PWM\Release\Obj\Lab_3_Driver.o
+#        C:\EE474\PWM\Release\Obj\main.o -o C:\EE474\PWM\Release\Exe\PWM.out
+#        --redirect _Printf=_PrintfFullNoMb --redirect _Scanf=_ScanfFullNoMb
+#        --map C:\EE474\PWM\Release\List\PWM.map --config "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench
+#        8.0\arm\CONFIG\generic_cortex.icf" --entry __iar_program_start
+#        --inline --vfe --text_out locale)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because some modules are built with
+size limitations (and not runtime checking), and --advanced_heap
+was not specified.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at 0x00000000 { ro section .intvec };
+"P1":  place in [from 0x00000000 to 0x0007ffff] { ro };
+define block CSTACK with size = 1K, alignment = 8 { };
+define block PROC_STACK with size = 0M, alignment = 8 { };
+define block HEAP with size = 2K, alignment = 8 { };
+"P3":  place in [from 0x00000000 to 0x00000000] |
+                [from 0x20000000 to 0x2000ffff] {
+          rw, block CSTACK, block PROC_STACK, block HEAP };
+
+  Section   Kind        Address   Size  Object
+  -------   ----        -------   ----  ------
+"A0":                             0x40
+  .intvec   ro code  0x00000000   0x40  vector_table_M.o [4]
+                   - 0x00000040   0x40
+
+"P1":                            0x1fc
+  .text     ro code  0x00000040   0xfc  Lab_3_Driver.o [1]
+  .text     ro code  0x0000013c   0xbc  main.o [1]
+  .text     ro code  0x000001f8   0x1a  cmain.o [4]
+  .text     ro code  0x00000212    0x4  exit.o [3]
+  .text     ro code  0x00000216    0x2  vector_table_M.o [4]
+  .text     ro code  0x00000218    0xa  cexit.o [4]
+  .text     ro code  0x00000224    0xc  XXexit.o [4]
+  .text     ro code  0x00000230    0xc  cstartup_M.o [4]
+                   - 0x0000023c  0x1fc
+
+"P3":                            0x400
+  CSTACK             0x20000000  0x400  <Block>
+    CSTACK  uninit   0x20000000  0x400  <Block tail>
+                   - 0x20000400  0x400
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module            ro code  rw data
+    ------            -------  -------
+C:\EE474\PWM\Release\Obj: [1]
+    Lab_3_Driver.o        252
+    main.o                188
+    ----------------------------------
+    Total:                440
+
+command line: [2]
+    ----------------------------------
+    Total:
+
+dl7M_tln.a: [3]
+    exit.o                  4
+    ----------------------------------
+    Total:                  4
+
+rt7M_tl.a: [4]
+    XXexit.o               12
+    cexit.o                10
+    cmain.o                26
+    cstartup_M.o           12
+    vector_table_M.o       66
+    ----------------------------------
+    Total:                126
+
+    Gaps                    2
+    Linker created               1 024
+--------------------------------------
+    Grand Total:          572    1 024
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address  Size  Type      Object
+-----                      -------  ----  ----      ------
+?main                   0x000001f9        Code  Gb  cmain.o [4]
+CSTACK$$Base            0x20000000         --   Gb  - Linker created -
+CSTACK$$Limit           0x20000400         --   Gb  - Linker created -
+PLL_Init                0x00000041  0xfc  Code  Gb  Lab_3_Driver.o [1]
+Region$$Table$$Base     0x00000000         --   Gb  - Linker created -
+Region$$Table$$Limit    0x00000000         --   Gb  - Linker created -
+__cmain                 0x000001f9        Code  Gb  cmain.o [4]
+__exit                  0x00000225        Code  Gb  XXexit.o [4]
+__iar_program_start     0x00000231        Code  Gb  cstartup_M.o [4]
+__iar_systems$$module {Abs}
+                        0x00000001        Data  Gb  command line/config [2]
+__vector_table          0x00000000        Data  Gb  vector_table_M.o [4]
+_call_main              0x00000205        Code  Gb  cmain.o [4]
+_exit                   0x00000219        Code  Gb  cexit.o [4]
+_main                   0x0000020f        Code  Gb  cmain.o [4]
+exit                    0x00000213   0x4  Code  Gb  exit.o [3]
+main                    0x0000013d   0xe  Code  Gb  main.o [1]
+pwmInit                 0x0000014b  0x94  Code  Gb  main.o [1]
+
+
+[1] = C:\EE474\PWM\Release\Obj
+[2] = command line
+[3] = dl7M_tln.a
+[4] = rt7M_tl.a
+
+    572 bytes of readonly  code memory
+  1 024 bytes of readwrite data memory
+
+Errors: none
+Warnings: none
