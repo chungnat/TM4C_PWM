@@ -1,7 +1,0 @@
-Debug/
-Release/
-settings/
-PWM.dep
-PWM.ewd
-PWM.ewt
-pwm
